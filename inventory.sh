@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Create Environment Variable
-export filename="games"
+export filename="games.txt"
 
 showChoices(){
     clear
@@ -12,6 +12,16 @@ showChoices(){
     echo "'View' your text file "
     echo "'Clear' your text file"
 }
+
+checkFile(){
+    if [ -s $filename ]; then
+        return 0
+    else
+        return 1
+fi
+}
+
+
 
 while :
 do
@@ -25,12 +35,23 @@ do
         "Back")
             # Go back to start script
             source ./start.sh
+            break
             ;;
         "Look")
-            echo "L"
+            checkFile
             ;;
         "View")
-            echo "V"
+            if checkFile; then
+                less $filename
+            else
+                clear
+                echo "$filename does not exist or is empty."
+                sleep 0.5
+            fi
+            ;;
+        "Clear")
+            clearFile
+            break
             ;;
         *)
             echo "Invalid choice"
