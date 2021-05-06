@@ -75,6 +75,7 @@ do
             ;;
         *)
             echo "Invalid choice"
+            sleep 1
             ;;
     esac
 done
