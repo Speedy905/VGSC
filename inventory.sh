@@ -21,7 +21,22 @@ checkFile(){
 fi
 }
 
-
+clearFile(){
+    clear
+    echo "WARNING!!!!!"
+    echo "THIS WILL TOTALLY ERASE EVERYTHING THAT IS IN YOUR FILE!"
+    read -p "ARE YOU SURE YOU WANT TO PROCEED? (y/n)" warn
+    if [ $warn == "Y" ] || [ $warn == "y" ]; then
+        echo "Clearing file"
+        > $filename
+        echo "File cleared"
+    elif [ $warn == "N" ] || [ $warn == "n" ]; then
+        echo "Aborting"
+    else
+        echo "Error"
+    fi
+    read -p "Press Enter to go back to the menu" blank
+}
 
 while :
 do
@@ -46,12 +61,17 @@ do
             else
                 clear
                 echo "$filename does not exist or is empty."
-                sleep 0.5
+                read -p "Press Enter to go back to the menu" blank
             fi
             ;;
         "Clear")
-            clearFile
-            break
+            if checkFile; then
+                clearFile
+            else
+                clear
+                echo "$filename does not exist or is empty."
+                read -p "Press Enter to go back to the menu" blank
+            fi
             ;;
         *)
             echo "Invalid choice"
