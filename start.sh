@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Antonio Karlo Mijares
 # Video Game Storage Creator rewritten in shell
