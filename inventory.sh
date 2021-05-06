@@ -9,7 +9,7 @@ showChoices(){
     echo "'Add' in a new game"
     echo "'Back' to the menu"
     echo "'Look' at the names of your current games"
-    echo "'View' your text file "
+    echo "'View' your text file (Will open with the 'less' command)"
     echo "'Clear' your text file"
 }
 
@@ -38,6 +38,13 @@ clearFile(){
     read -p "Press Enter to go back to the menu" blank
 }
 
+viewNames(){
+    clear
+    echo "Your current list:"
+    grep -F "Video Game: " $filename | cut -f 2 -d :
+    read -p "Press Enter to go back to the menu" blank
+}
+
 while :
 do
     showChoices
@@ -53,7 +60,13 @@ do
             break
             ;;
         "Look")
-            checkFile
+            if checkFile; then
+                viewNames
+            else
+                clear
+                echo "$filename does not exist or is empty."
+                read -p "Press Enter to go back to the menu" blank
+            fi
             ;;
         "View")
             if checkFile; then
