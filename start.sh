@@ -1,18 +1,20 @@
 #!/bin/bash
 
 # Antonio Karlo Mijares
-# Video Game Storage Creator rewritten in bash
+# Video Game Storage Creator rewritten in shell
 # Why? I was curious to see if I could make this work
 # This will follow the previous assignment's structure (At least, for the most part)
 
-
-echo "--------------------------------------------------------------"
-echo "Welcome to the Video Game Storage Creator, rewritten in bash!"
-echo " __   _____ ___  ___" 
-echo " \ \ / / __/ __|/ __|"
-echo "  \ V / (_ \__ \ (__ "
-echo "   \_/ \___|___/\___|"
-echo "--------------------------------------------------------------"
+initalstart(){
+    clear
+    echo "--------------------------------------------------------------"
+    echo "Welcome to the Video Game Storage Creator, rewritten in Shell!"
+    echo " __   _____ ___  ___" 
+    echo " \ \ / / __/ __|/ __|"
+    echo "  \ V / (_ \__ \ (__ "
+    echo "   \_/ \___|___/\___|"
+    echo "--------------------------------------------------------------"
+}
 
 Displaychoices(){
     echo "--------------------------------"
@@ -24,8 +26,32 @@ Displaychoices(){
     echo "--------------------------------"
 }
 
+showHelp(){
+    clear
+    echo "This creates your 'shelf',"
+    echo "creating your video game collection"
+    echo "You can:"
+    echo "a) Read the text file"
+    echo "b) View how many games you have"
+    echo "c) Clear your text file"
+    read -p "Press Enter to go back to the menu" blank
+    clear
+}
+
+showCredits(){
+    clear
+    echo "A rewrite of Video Game Storage Creator in Shell"
+    sleep 1
+    echo "Made by Antonio Karlo Mijares"
+    sleep 1
+    echo "Licensed under MIT License"
+    sleep 1
+    clear
+}
+
 while :
 do
+    initalstart
     Displaychoices
     read -p "Enter your choice (Case sensitive): " ans
     case $ans in
@@ -34,16 +60,14 @@ do
             break
             ;;
         "Help")
-            echo "H"
-            break
+            showHelp
             ;;
         "Quit")
-            echo "Q"
-            break
+            echo "Exiting program. Goodbye!"
+            exit 0
             ;;
         "Credits")
-            echo "C"
-            break
+            showCredits
             ;;
         *)
             echo "Invalid choice"
