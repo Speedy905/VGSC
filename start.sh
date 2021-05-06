@@ -19,10 +19,10 @@ initalstart(){
 Displaychoices(){
     echo "--------------------------------"
     echo "Choose the following options:"
-    echo "Start to Start the Creation"
-    echo "Help to display Help/Instructions"
-    echo "Quit to quit the creation"
-    echo "Credits to view the credits"
+    echo "'Start' to Start the Creation"
+    echo "'Help' to display Help/Instructions"
+    echo "'Quit' to quit the creation"
+    echo "'Credits' to view the credits"
     echo "--------------------------------"
 }
 
@@ -53,10 +53,10 @@ while :
 do
     initalstart
     Displaychoices
-    read -p "Enter your choice (Case sensitive): " ans
+    read -p "Enter your choice (W/O Quotations, Case sensitive): " ans
     case $ans in
         "Start")
-            echo "S"
+            source ./inventory.sh
             break
             ;;
         "Help")
