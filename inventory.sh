@@ -51,7 +51,12 @@ do
     read -p "Enter your choice (W/O Quotations, Case sensitive): " ans
     case $ans in
         "Add")
-            echo "A"
+            if checkFile; then
+                source ./name.sh
+            else
+                touch $filename
+                source ./name.sh
+            fi
             break
             ;;
         "Back")
