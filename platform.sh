@@ -13,20 +13,27 @@ platforms(){
     # Lowercase the first character
     plat=${1,}
     clear
+    platfile=dictionaries/platforms/$plat.txt
     echo "What console does it belong to?"
-    cat dictionaries/platforms/$plat.txt
+    cat $platfile
     echo "Enter your choice, case sensitive"
-    echo "Or type '-Go back-'"
+    echo "Or type 'Go back'"
     echo "W/O Quotations to go back to the previous menu"
     read -p "Response: " consplat
     
-    if [ $consplat == "-Go back-" ]; then
-        return
-    elif grep -q "$consplat" "$filename" ; then
-        echo "It exists"
-    else
-        "No"
-    fi
+    case $consplat in
+        "Go back")
+            return
+            ;;
+        *)
+            if grep -q "$consplat" "$platfile" ; then
+                echo "It exists"
+            else
+                echo "No"
+            fi
+            ;;
+    esac
+    
 }
 
 while :
