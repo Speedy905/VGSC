@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# For some reasaon, I have to redeclare this variable
+# every once in a while, even though its already set as a
+# environment variable. If i don't have this, the script won't
+# continue
+export filename="games.txt"
+
 displaybrand(){
     clear
     echo "What brand does your video game belong on? (For more choices, type in the last option)"
@@ -23,11 +29,12 @@ platforms(){
     
     case $consplat in
         "Go back")
-            return
+            return 1
             ;;
         *)
             if grep -q "$consplat" "$platfile" ; then
-                echo "It exists"
+                echo "Platform: $consplat" >> $filename
+                return 0
             else
                 echo "No"
             fi
@@ -36,20 +43,23 @@ platforms(){
     
 }
 
+nocategory(){
+    clear
+    echo "Which platform does the video game belong to?"
+    cat dictionaries/platforms/nocategories.txt
+}
+
 while :
 do
     displaybrand
     read -p "Enter your choice (W/O Quotations, Case sensitive): " ans
     case $ans in
-        "Microsoft")
-            platforms $ans
-            break
-            ;;
-        "Nintendo")
-            break
-            ;;
-        "Sony")
-            break
+        "Microsoft" | "Nintendo" | "Sony")
+            if platforms $ans; then
+                break
+            else
+                continue
+            fi
             ;;
         "None")
             break
