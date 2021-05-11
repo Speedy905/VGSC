@@ -80,14 +80,14 @@ runplatmenu(){
         case $ans in
             "Microsoft" | "Nintendo" | "Sony")
                 if platforms $ans; then
-                    break
+                    source ./genre.sh
                 else
                     continue
                 fi
                 ;;
             "None")
                 if nocategory ; then
-                    break
+                    source ./genre.sh
                 else
                     continue
                 fi
