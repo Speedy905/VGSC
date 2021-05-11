@@ -3,7 +3,7 @@
 if [ -f "$filename" ]; then
     clear
     read -p "Type in the name of your game: " gamename
-    echo "Video game: $gamename" >> $filename
+    echo "Video Game: $gamename" >> $filename
     clear
     source ./platform.sh
 else
