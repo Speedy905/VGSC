@@ -45,6 +45,12 @@ viewNames(){
     read -p "Press Enter to go back to the menu" blank
 }
 
+displayError(){
+    clear
+    echo "$filename does not exist or is empty."
+    read -p "Press Enter to go back to the menu" blank
+}
+
 while :
 do
     showChoices
@@ -68,27 +74,21 @@ do
             if checkFile; then
                 viewNames
             else
-                clear
-                echo "$filename does not exist or is empty."
-                read -p "Press Enter to go back to the menu" blank
+                displayError
             fi
             ;;
         "View")
             if checkFile; then
                 less $filename
             else
-                clear
-                echo "$filename does not exist or is empty."
-                read -p "Press Enter to go back to the menu" blank
+                displayError
             fi
             ;;
         "Clear")
             if checkFile; then
                 clearFile
             else
-                clear
-                echo "$filename does not exist or is empty."
-                read -p "Press Enter to go back to the menu" blank
+                displayError
             fi
             ;;
         *)
