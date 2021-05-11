@@ -36,7 +36,9 @@ platforms(){
                 echo "Platform: $consplat" >> $filename
                 return 0
             else
-                echo "No"
+                echo "System not found."
+                sleep 1
+                return 1
             fi
             ;;
     esac
@@ -46,7 +48,28 @@ platforms(){
 nocategory(){
     clear
     echo "Which platform does the video game belong to?"
-    cat dictionaries/platforms/nocategories.txt
+    nocatfile=dictionaries/platforms/nocategories.txt
+    cat $nocatfile
+    echo "Enter your choice, case sensitive"
+    echo "Or type 'Go back'"
+    echo "W/O Quotations to go back to the previous menu"
+    read -p "Response: " nocat
+    
+    case $nocat in
+        "Go back")
+            return 1
+            ;;
+        *)
+            if grep -q "$nocat" "$nocatfile" ; then
+                echo "Platform: $nocat" >> $filename
+                return 0
+            else
+                echo "Platform not found."
+                sleep 1
+                return 1
+            fi
+            ;;
+    esac
 }
 
 runplatmenu(){
@@ -63,7 +86,11 @@ runplatmenu(){
                 fi
                 ;;
             "None")
-                break
+                if nocategory ; then
+                    break
+                else
+                    continue
+                fi
                 ;;
             *)
                 echo "Invalid choice"
