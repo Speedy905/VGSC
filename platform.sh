@@ -49,24 +49,33 @@ nocategory(){
     cat dictionaries/platforms/nocategories.txt
 }
 
-while :
-do
-    displaybrand
-    read -p "Enter your choice (W/O Quotations, Case sensitive): " ans
-    case $ans in
-        "Microsoft" | "Nintendo" | "Sony")
-            if platforms $ans; then
+runplatmenu(){
+    while :
+    do
+        displaybrand
+        read -p "Enter your choice (W/O Quotations, Case sensitive): " ans
+        case $ans in
+            "Microsoft" | "Nintendo" | "Sony")
+                if platforms $ans; then
+                    break
+                else
+                    continue
+                fi
+                ;;
+            "None")
                 break
-            else
-                continue
-            fi
-            ;;
-        "None")
-            break
-            ;;
-        *)
-            echo "Invalid choice"
-            sleep 1
-            ;;
+                ;;
+            *)
+                echo "Invalid choice"
+                sleep 1
+                ;;
     esac
 done
+}
+
+if [ -f "$filename" ]; then
+    runplatmenu
+else
+    echo "Please run start.sh, as file does not exist."
+    exit 1
+fi
