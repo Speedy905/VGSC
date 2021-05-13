@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Needed to redeclare again....
 export filename="games.txt"

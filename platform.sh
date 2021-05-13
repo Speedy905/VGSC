@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # For some reasaon, I have to redeclare this variable
 # every once in a while, even though its already set as a

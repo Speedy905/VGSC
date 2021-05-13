@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Create Environment Variable
 export filename="games.txt"
