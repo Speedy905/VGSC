@@ -41,7 +41,7 @@ clearFile(){
 viewNames(){
     clear
     echo "Your current list:"
-    grep -F "Video Game: " $filename | cut -f 2 -d :
+    grep -F "Video Game: " $filename | cut -f 2- -d : | sort
     read -p "Press Enter to go back to the menu" blank
 }
 
