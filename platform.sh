@@ -9,10 +9,7 @@ export filename="games.txt"
 displaybrand(){
     clear
     echo "What brand does your video game belong on? (For more choices, type in the last option)"
-    echo "'Microsoft'"
-    echo "'Nintendo'"
-    echo "'Sony'"
-    echo "'None'"
+    cat dictionaries/platform-list.txt
 }
 
 platforms(){
