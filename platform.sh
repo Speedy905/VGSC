@@ -93,8 +93,8 @@ runplatmenu(){
                 echo "Invalid choice"
                 sleep 1
                 ;;
-    esac
-done
+        esac
+    done
 }
 
 if [ -f "$filename" ]; then
