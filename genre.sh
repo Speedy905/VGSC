@@ -6,7 +6,9 @@ export filename="games.txt"
 displaymainGenre(){
     clear
     echo "What is the main genre of your video game?"
+    echo ""
     cat dictionaries/main-genres.txt
+    echo ""
 }
 
 subgenre(){
@@ -14,7 +16,9 @@ subgenre(){
     clear
     subfile=dictionaries/sub-genres/$sub.txt
     echo "What subgenre does it belong to?"
+    echo ""
     cat "$subfile"
+    echo ""
     echo "Enter your choice, case sensitive (w/o quotations)"
     echo "Or type 'Go back' to go back to the previous menu"
     echo "Or type 'Unknown' if not shown"

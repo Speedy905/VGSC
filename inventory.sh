@@ -25,7 +25,7 @@ clearFile(){
     clear
     echo "WARNING!!!!!"
     echo "THIS WILL TOTALLY ERASE EVERYTHING THAT IS IN YOUR FILE!"
-    read -p "ARE YOU SURE YOU WANT TO PROCEED? (y/n)" warn
+    read -p "ARE YOU SURE YOU WANT TO PROCEED? (y/n): " warn
     if [ $warn == "Y" ] || [ $warn == "y" ]; then
         echo "Clearing file"
         > $filename
@@ -54,6 +54,7 @@ displayError(){
 while :
 do
     showChoices
+    echo ""
     read -p "Enter your choice (W/O Quotations, Case sensitive): " ans
     case $ans in
         "Add")

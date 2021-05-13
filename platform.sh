@@ -18,7 +18,9 @@ platforms(){
     clear
     platfile=dictionaries/platforms/$plat.txt
     echo "What console does it belong to?"
+    echo ""
     cat $platfile
+    echo ""
     echo "Enter your choice, case sensitive"
     echo "Or type 'Go back'"
     echo "W/O Quotations to go back to the previous menu"
@@ -45,8 +47,10 @@ platforms(){
 nocategory(){
     clear
     echo "Which platform does the video game belong to?"
+    echo ""
     nocatfile=dictionaries/platforms/nocategories.txt
     cat $nocatfile
+    echo ""
     echo "Enter your choice, case sensitive"
     echo "Or type 'Go back'"
     echo "W/O Quotations to go back to the previous menu"
