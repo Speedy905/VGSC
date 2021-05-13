@@ -1,4 +1,5 @@
-4X gameArtillery game
+4X game
+Artillery game
 Real-time strategy
 Real-time tactics
 Multiplayer online battle arena
