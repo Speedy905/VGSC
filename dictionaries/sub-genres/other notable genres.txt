@@ -3,5 +3,6 @@ Casual game
 Music game
 Party game
 Programming game
-Logic gameTrivia game
+Logic game
+Trivia game
 Board game/Card game
