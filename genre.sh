@@ -67,6 +67,7 @@ genremenu(){
             fi
         else
             echo "Invalid answer. Please try again."
+            sleep 1
         fi
     done
 }
